@@ -1,0 +1,60 @@
+---
+title: 'Cómo crear una entrada al blog'
+date: '2024-07-10'
+lastmod: '2024-07-16'
+tags: ['blog']
+draft: false
+summary: 'Pasos para crear una entrada a la plantilla tailwind-nextjs-starter-blog.'
+images: ['/static/images/twitter-card.png']
+authors: ['default']
+---
+
+## Introducción
+
+El **Blog de Desarrollo Creativo** es una herramienta que nos permitirá documentar el proceso de desarrollo de algunas tareas recurrentes que nosotros mismo como programadores hemos identificado. A continuación y como prueba de los antes mencionado se mostrará cuál es el proceso que se debe llevar a cabo para la creación de una entrada en este blog.
+
+{/* Indice */}
+{/* <TOCInline toc={props.toc} exclude="Introduction" /> */}
+
+## Requisitos previos
+
+{/* ![Github Traffic](/static/images/github-traffic.png) */}
+
+- Conocimientos de **Marckdown**.
+- Nociones básicas de **Nextjs**.
+
+## Contexto
+
+El presente sistema web es un fork del repositorio [tailwind-nextjs-starter-blog](https://github.com/timlrx/tailwind-nextjs-starter-blog) que ha sido adaptado a nuestras necesidades. Siendo un proyecto que se basa en otro primero debemos conocer la estructura de archivos en las que vamos a trabajar y lo que hay que tomar en cuenta a la hora de crear nuestra entrada de blog.
+
+### Estructura de directorios
+
+- `data/authors`: directorio en el que se guardan la tarjetas de presentación de todos los que han aportado en este proyectos, con el fin de firmar cada post con los datos del autor.
+- `data/blog`: directorio principal en el que se almacenan todas las entradas de este post, teniendo que tenes un formato `.mdx`, el nombre en letras minúsculas separados por `-` y puede almacenarse en subdirectorios para tener una mejor organización.
+
+### Estructura de archivos
+
+- **Autores**: el archivo debe tener como nombre `nombre-author.md` con la siguiente estructura:
+
+```mdx
+---
+name: Agustin Mejia
+avatar: https://url-de-su-imagen
+occupation: Programador full stack
+company: Desarrollo Creativo
+email: example@mail.com
+twitter: https://twitter.com/user-name
+linkedin: https://www.linkedin.com/in/user-name
+github: https://github.com/user-name
+---
+```
+
+- **Entradas**: las entradas se almacenan como `titulo-del-blog.md` y en el directorio `data/example` hay ejemplo de las plantillas para elegir la que se ajuste a sus necesidades.
+
+## Despliegue
+
+Para que los cambios se reflejen en el sitio web se debe ejecutar el siguiente comando:
+
+```bash
+npm run build
+```
