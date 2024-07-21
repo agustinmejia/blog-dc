@@ -5,7 +5,7 @@ lastmod: '2024-07-16'
 tags: ['blog']
 draft: false
 summary: 'Pasos para crear una entrada a la plantilla tailwind-nextjs-starter-blog.'
-images: ['/static/images/twitter-card.png']
+images: ['/public/static/images/social-banner.png']
 authors: ['default']
 ---
 
@@ -13,14 +13,9 @@ authors: ['default']
 
 El **Blog de Desarrollo Creativo** es una herramienta que nos permitirá documentar el proceso de desarrollo de algunas tareas recurrentes que nosotros mismo como programadores hemos identificado. A continuación y como prueba de los antes mencionado se mostrará cuál es el proceso que se debe llevar a cabo para la creación de una entrada en este blog.
 
-{/* Indice */}
-{/* <TOCInline toc={props.toc} exclude="Introduction" /> */}
-
 ## Requisitos previos
 
-{/* ![Github Traffic](/static/images/github-traffic.png) */}
-
-- Conocimientos de **Marckdown**.
+- Conocimientos de **Markdown**.
 - Nociones básicas de **Nextjs**.
 
 ## Contexto
@@ -29,7 +24,7 @@ El presente sistema web es un fork del repositorio [tailwind-nextjs-starter-blog
 
 ### Estructura de directorios
 
-- `data/authors`: directorio en el que se guardan la tarjetas de presentación de todos los que han aportado en este proyectos, con el fin de firmar cada post con los datos del autor.
+- `data/authors`: directorio en el que se guardan las tarjetas de presentación de todos los que han aportado en este proyectos, con el fin de firmar cada post con los datos del autor.
 - `data/blog`: directorio principal en el que se almacenan todas las entradas de este post, teniendo que tenes un formato `.mdx`, el nombre en letras minúsculas separados por `-` y puede almacenarse en subdirectorios para tener una mejor organización.
 
 ### Estructura de archivos
@@ -53,7 +48,7 @@ github: https://github.com/user-name
 
 ## Despliegue
 
-Para que los cambios se reflejen en el sitio web se debe ejecutar el siguiente comando:
+Para que los cambios hagan efectos en el sitio web se debe ejecutar el siguiente comando:
 
 ```bash
 npm run build

@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://blog.desarrollocreativo.dev/',
   siteRepo: 'https://github.com/agustinmejia/blog-dc',
   siteLogo: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/public/static/images/social-banner.png',
   mastodon: '',
   email: 'desarrollocreativodev@gmail.com',
   github: 'https://github.com/orgs/desarrollo-creativo',

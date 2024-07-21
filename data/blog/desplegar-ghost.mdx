@@ -1,0 +1,96 @@
+---
+title: 'Desplegar Ghost - versión corta'
+date: '2024-07-21'
+lastmod: '2024-07-21'
+tags: ['despliegue', 'ghost', 'digitalocean']
+draft: false
+summary: 'Desplegar en CMS Ghost para generar blogs en DigitalOcean usando una imagen de Ghost del marketplace.'
+images: ['/static/blog/desplegar-ghost/banner.png']
+authors: ['default']
+---
+
+## Introducción
+
+**[Ghost](https://ghost.org/)** es una aplicación poderosa para que los editores profesionales creen, compartan y hagan crecer un negocio en torno a su contenido. Viene con herramientas modernas para crear un sitio web, publicar contenido, enviar boletines y ofrecer suscripciones pagas a los miembros.
+
+## Requisitos previos
+
+- Cuenta en **DigitalOcean**.
+- Tener un nombre de dominio.
+- Conocimientos básico de terminal de **línea de comando** linux.
+
+## Paso 1: Crear servidor
+
+- Debes ir a tu panel de administración de DigitalOcean y crear un nuevo droplet.
+  ![Crear nuevo droplet](/static/blog/desplegar-ghost/1.png)
+- En la parte de **Seleccionar una imagen** debes seleccionar el tab **Marketplace**, buscamos **[Ghost](https://ghost.org/)** y lo seleccionamos.
+  ![Seleccionar imagen de ghost](/static/blog/desplegar-ghost/2.png)
+- Seleccionar el tamaño de Memoria RAM, CPU y Disco de tu droplet. Se recomienda usar una memoria RAM de 2GB o en caso de usar 1GB de RAM, se debe usar un procesador optimizado.
+  ![Tamaño del servidor](/static/blog/desplegar-ghost/3.png)
+- Asignar una contraseña. (Es menos complicado que generar una clave ssh aunque menos recomendable)
+  ![Crear contrasela](/static/blog/desplegar-ghost/4.png)
+- Habilitar el panel de métricas. (Gratis)
+  ![Habilitar estadísticas](/static/blog/desplegar-ghost/5.png)
+- Definir el nombre de nuestro droplet Ej. **ghost-blog**.
+  ![Nombrar droplet](/static/blog/desplegar-ghost/6.png)
+- Por último seleccionamos el proyecto en el que queremos guardar nuestro droplet y presionamos **Create Droplet**
+  ![Seleccionar proyecto](/static/blog/desplegar-ghost/7.png)
+
+## Paso 2: Asociar nuestro dominio o subdominio a nuestro droplet
+
+A continuación vamos a mostrar cómo crear el dominio o subdominio (según sea su caso), que va a usar en su proyecto de **[Ghost](https://ghost.org/)**.
+
+NOTA: no es necesario que haga ambos pasos, solo el que se necesite para este proyecto.
+
+### Asociar el dominio
+
+- Debes haber adquirido el dominio en cualquiera de las plataformas y haber configurado el DNS.
+- Registra el dominio en DigitalOcean. (**Create -> Domains/DNS**)
+  ![Registrar dominio](/static/blog/desplegar-ghost/8.png)
+- Ingresar el dominio (sin http o https), seleccionar el proyecto al que va a ir asociado y presionar **Add domain**.
+  ![Datos de dominio](/static/blog/desplegar-ghost/9.png)
+- Luego de registrar el dominio buscar el dominio creado y dar click para terminar la configuración.
+- En el formulario de creación de registro porner los siguientes datos: - **HOSTNAME**: @ - **WILL DIRECT TO**: Seleccionar el droplet creado donde está alojado nuestro proyecto **[Ghost](https://ghost.org/)**.
+  ![Agregar registro de dominio](/static/blog/desplegar-ghost/10.png)
+
+### Asociar un subdominio
+
+- Ve a tu lista de dominios registrados en tu panel de administración de DigitalOcean y selecciona el que vas a usar para este proyecto.
+- En el formulario de creación de registro porner los siguientes datos: - **HOSTNAME**: nombre de tu subdominio Ej. blog - **WILL DIRECT TO**: Seleccionar el droplet creado donde está alojado nuestro proyecto **[Ghost](https://ghost.org/)**.
+  ![Agregar registro de dominio](/static/blog/desplegar-ghost/11.png)
+
+## Paso 3: Configurar Ghost
+
+- Conectarse mediante ssh al servidor desde su terminal de comando.
+
+  ```bash
+  ssh root@ip-del-droplet
+  ```
+
+  Nota: si usa windows se recomienta usar PuTTY o usar la terminal de cada droplet en el panel de DigitalOcean.
+
+- Una vez ingresamos al servidor automáticamente se va a ejecutar el comando de inicialización y le mostrará una pantalla así:
+  ![Bienvenida ghost](/static/blog/desplegar-ghost/12.png)
+- presionamos **Enter** para iniciar con la instalación.
+- Una vez descargue todos lo archivos e instale **Ghost** te pedirá que ingreses la URL de tu proyecto. (Ingresamos sin `http o https` el dominio o subdominio según sea tu caso)
+  ![Ingresar URL](/static/blog/desplegar-ghost/13.png)
+- Luego te pedirá un correo electrónico para enviarte notificaciones acerca del estado del certificado SSL que va a crear automáticamente para tu dominio. (No es para crear cuenta ni nada de eso)
+  ![Ingresar Email para SSL](/static/blog/desplegar-ghost/14.png)
+- Una vez termine este último paso de configuración abre cualquier navegador web e ingresa a la URL que creaste para tu proyecto y verás una pantalla así:
+  ![Página de inicio Ghost](/static/blog/desplegar-ghost/15.png)
+
+## Paso 4: Ingresar al panel de administración
+
+Para ingresar al panel de administración deber ingresar `https://la-url-de-tu-proyecto/ghost`. La primera vez te pedirá que ingreses tu datos de administrador.
+
+- Nombre de tu blog. (Para el título de tu página web)
+- Tu nombre.
+- Tu Email para loguearte como administrador.
+- Tu contraseña. (10 o más caracteres)
+  ![Registrarse como administrador de Ghost](/static/blog/desplegar-ghost/16.png)
+- Una vez ingresado estos datos presionamos el botón **Create account & start publishing** y veremos nuestro panel de administración.
+  ![Panel de administración Ghost](/static/blog/desplegar-ghost/17.png)
+
+## Conclusión
+
+Como pudimos ver se puede desplegar un CMS orientado a gestionar un blog en pocos pasos sin necesidad de tener conocimientos profundos de manejo y configuración de servidores, ya que digital ocean nos provee de un panel de administración fácil de usar y un marketplace de imágenes de sistemas operativos que vienen con todo lo que necesita nuestro sistema para funcionar.
