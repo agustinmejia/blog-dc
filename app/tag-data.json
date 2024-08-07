@@ -1,1 +1,10 @@
-{"despliegue":1,"ghost":1,"digitalocean":1,"blog":1}
+{
+  "strapi": 1,
+  "headless-cms": 1,
+  "javascript": 1,
+  "nextjs": 1,
+  "despliegue": 1,
+  "ghost": 1,
+  "digitalocean": 1,
+  "blog": 1
+}

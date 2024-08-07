@@ -1,0 +1,156 @@
+---
+title: 'Strapi primeros pasos'
+date: '2024-08-07'
+lastmod: '2024-08-07'
+tags: ['strapi', 'headless cms', 'javascript', 'nextjs']
+draft: false
+summary: 'Primeros pasos para iniciar con en el headless CMS Strapi.'
+images: ['/static/blog/primeros-pasos-strapi/banner.png']
+authors: ['default']
+---
+
+![Registrar usuario admin Strapi](/static/blog/primeros-pasos-strapi/banner.png)
+
+## Introducción
+
+**[Strapi](https://strapi.io/)** es un CMS (Sistema de Gestión de Contenidos) sin cabeza (headless) que permite a los desarrolladores crear, gestionar y distribuir contenido fácilmente a través de una API. Está basado en Node.js y es altamente personalizable gracias a su arquitectura de plugins. Strapi soporta tanto GraphQL como REST APIs, lo que facilita la integración con diversas plataformas y frontends. Además, ofrece una interfaz de usuario intuitiva para la administración de contenido y permite la autenticación y gestión de usuarios, lo que lo hace ideal para proyectos de cualquier tamaño.
+
+## Requisitos previos
+
+- Nodejs v18 o v20 (no es usar v19 o v21).
+- npm >= 6.
+- MySql (se puede usar PostgreSQL o SQLite)
+
+## Paso 1: Intalar
+
+- Comando de instalación
+
+```bash
+npx create-strapi-app@latest nombre-proyecto
+```
+
+- Se desplegará el siguiente diálogo para seleccionar la opción de instalación y seleccionamos la segunda opción **Custom (manual settings)**.
+
+```bash
+? Choose your installation type
+  Quickstart (recommended)
+> Custom (manual settings)
+```
+
+**Nota:** En caso de seleccionar la primera va a instalar todo el proyecto sin configurar nada y con Sqlite como fuente de datos. (en este ejemplo vamos a usar mysql, por eso elegimos la segunda opción)
+
+- A continuación nos desplegará el siguiente diálogo y seleccionamos la segunda opción **Skip**.
+
+```bash
+We cant find any auth credentials in your Strapi config.
+
+Create a free account on Strapi Cloud and benefit from:
+
+- ✦ Blazing-fast ✦ deployment for your projects
+- ✦ Exclusive ✦ access to resources to make your project successful
+- An ✦ Awesome ✦ community and full enjoyment of Strapis ecosystem
+
+Start your 14-day free trial now!
+
+
+? Please log in or sign up.
+  Login/Sign up
+> Skip
+```
+
+**Nota:** La primera opción es para crearnos una cuenta en su cloud para desplegar nuestro proyecto con una periodo de prueba de **14 días**.
+
+Luegos nos preguntará en qué lenguaje queremos que se construya nuestro proyecto. (En este caso voy a elegir **JavaScript**)
+
+```bash
+? Choose your preferred language (Use arrow keys)
+> JavaScript
+  TypeScript
+```
+
+Luego elegimos el tipo de gestos de base de datos al que nos vamos a conectar, en este ejemplo elegiremos **mysql**
+
+```bash
+? Choose your default database client
+  sqlite
+  postgres
+> mysql
+```
+
+Luego debemis ingresar nuestros datos de conexión a la base de datos
+
+```bash
+? Database name: demo
+? Host: 127.0.0.1
+? Port: 3306
+? Username: root
+? Password: ********
+? Enable SSL connection: N
+```
+
+**Nota:** en la opción **Enable SSL connection** la dejamos con la opción por defecto **N**.
+
+Una vez ingresados todos los datos procederá a contruir nuestra aplicación y nos mostrará los siguientes datos del proyecto
+
+```bash
+Creating a project with custom database options.
+Creating a new Strapi application at directorio-de-tu-proyecto\demo.
+Creating files.
+Dependencies installed successfully.
+Initialized a git repository.
+
+
+Your application was created at directorio-de-tu-proyecto\demo.
+
+Available commands in your project:
+
+  yarn develop
+  Start Strapi in watch mode. (Changes in Strapi project files will trigger a server restart)
+
+  yarn start
+  Start Strapi without watch mode.
+
+  yarn build
+  Build Strapi admin panel.
+
+  yarn deploy
+  Deploy Strapi project.
+
+  yarn strapi
+  Display all available commands.
+
+You can start by doing:
+
+  cd directorio-de-tu-proyecto\ejemplo\demo
+  yarn develop
+```
+
+## Paso 2: Generar panel de administración
+
+**Importante**: Algo importante a tomar en cuenta es que debemos haber creado nuestra base de datos previamente.
+
+Ejecutar el comando para generar el panel de administración.
+
+```bash
+npm run develop
+```
+
+## Paso 3: Ingresar al panel de administración
+
+Ejecutar el comando para generar el panel de administración.
+
+```bash
+npm start
+```
+
+## Paso 4: Crear usuario administrador
+
+La primera vez que ingreses al panel de administración te va a solicitar que registres los datos del usuario administrador.
+
+![Registrar usuario admin Strapi](/static/blog/primeros-pasos-strapi/1.png)
+
+Una vez ingresados los datos nos mostrará en panel de administración.
+
+## Conclusión
+
+En pocos comandos tenemos un **headless cms** que nos permitirá generar una API que pueda ser consumida desde un sitio web frontend o desde una aplicación. Esto nos puede servir de mucha ayuda para generar demos de algun sistema que deseemos desarrollar sin tener que programar una sola líena de código o utilizar con como proyecto backend debido a que es una herramienta completa y fácil de manejar.
